@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>DATABASE</h1>
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>DATABASE</h1>
+    <div class="container">
+        {% for post in posts %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <p> By {{ post.auther }} on
+                            <small class="text-muted"> {{ post.date_post }} </small>
+                        </p>
+                    </div>
+                    <h2><a class="nav-link article-title" href="#"> {{ post.title }} </a></h2>
+                    <p class="article-content"> {{ post.content }} </p>
+                </div>
+            </article>
+            <hr />
+        {% endfor %}            
+    </div> 
+
+{% endblock content %}
